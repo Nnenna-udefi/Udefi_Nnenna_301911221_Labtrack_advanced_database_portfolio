@@ -65,7 +65,6 @@ The database should:
 - Each order is placed by one clinician.
 - The first version supports one recorded result per ordered test.
 - Each ordered test is linked to one specimen.
-- The initial system uses MySQL 8.0 or another compatible version specified by the assessment.
 - Sample patients and clinicians are fictional.
 
 ## 6. Quality Requirements
