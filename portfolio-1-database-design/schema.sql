@@ -1,5 +1,3 @@
-
-
 CREATE DATABASE IF NOT EXISTS labtrack_db;
 USE labtrack_db;
 
