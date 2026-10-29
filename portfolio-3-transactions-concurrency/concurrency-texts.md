@@ -1,10 +1,5 @@
 # Portfolio 3: Transaction and Concurrency Tests
 
-**Project:** LabTrack Laboratory Information Management System (LIMS)  
-**Database:** `labtrack_db`  
-**DBMS:** MySQL 8.0.46  
-**Storage Engine:** InnoDB
-
 ## 1. Introduction
 
 This document describes the experiments carried out to understand how MySQL handles transactions and concurrent database operations in LabTrack.
@@ -15,7 +10,7 @@ These behaviours are important in a laboratory information system because multip
 
 ## 2. Test Environment
 
-The experiments use MySQL with the InnoDB storage engine. Two separate database connections are used for the isolation and row-locking experiments.
+The experiments use MySQL with the InnoDB storage engine. Two separate database connections were used for the isolation and row-locking experiments.
 
 | Item | Description |
 |---|---|
@@ -51,7 +46,9 @@ Before the commit, the session sees the updated status within its transaction. A
 
 ### Interpretation
 
-`COMMIT` makes the transaction's changes permanent. This is useful in LabTrack when an authorised workflow update must be saved reliably.
+`COMMIT` guarantees Atomicity and Durability (ACID) by making transactional changes permanent in labtrack_db.
+
+In LabTrack, when a Front Desk Personnel checks in a patient sample or registers a completed order, all corresponding updates across linked tables must persist permanently. If the system crashes after COMMIT, the sample state remains safely recorded, ensuring laboratory scientists receives an accurate operational status.
 
 
 ## 4. Experiment 2: ROLLBACK
@@ -75,7 +72,9 @@ The session displayed `PENDING` before the rollback. After `ROLLBACK`, the statu
 
 ### Interpretation
 
-`ROLLBACK` cancels changes made in the current uncommitted transaction. This is useful when an incorrect order update must be cancelled before it is committed.
+`ROLLBACK` cancels changes made in the current uncommitted transaction. This is useful when an incorrect order update must be cancelled before it is committed. This enforces atomicity
+
+In LabTrack, when a Laboratory Scientist enters batch test results or updates specimen records. Input errors (e.g., entering an out-of-range numeric result, selecting the wrong patient ID, or triggering a custom schema check constraint failure) can occur. `ROLLBACK` guarantees that partial, invalid, or erroneous batch entries are completely cancelled before committing to the database, maintaining clean clinical data integrity and preventing invalid diagnostic data from reaching patient records.
 
 
 
@@ -119,9 +118,9 @@ Session A's first read sees `NEGATIVE`:
 
 ### Interpretation
 
-Under InnoDB's `REPEATABLE READ` isolation level, consistent reads within the same transaction generally continue to use the snapshot established by the first consistent read.
+Under InnoDB's `REPEATABLE READ` isolation level, consistent reads within the same transaction generally continue to use the snapshot established by the first consistent read. This prevents a transaction from seeing a different committed value on a later consistent read of the same row simply because another transaction committed an update in between.
 
-This prevents a transaction from seeing a different committed value on a later consistent read of the same row simply because another transaction committed an update in between.
+In LabTrack, an Authorized Clinician or Laboratory Manager generating a patient transcript or daily department summary report relies on stable, reproducible data. If a Medical Laboratory Scientist concurrently verifies or updates result values (`TEST_RESULTS.interpretation`) for an order while the clinician is actively compiling or printing the multi-page report, REPEATABLE READ prevents "Non-Repeatable Reads." The clinician sees a point-in-time snapshot, ensuring generated diagnostic reports remain consistent during the entire compilation session.
 
 
 ## 6. Experiment 4: Concurrency and Row Locking
@@ -166,7 +165,7 @@ After Session A commits, Session B continues.
 
 InnoDB uses row-level locking to coordinate conflicting changes. This helps prevent simultaneous transactions from making incompatible updates to the same record.
 
-In LabTrack, row locking can help coordinate concurrent changes to laboratory orders. Application-level permissions and workflow rules are still needed to ensure that only authorised staff can perform particular actions.
+In LabTrack, dual-access write conflicts may frequently occur, for example, when a Front Desk Personnel attempts to update `LAB_ORDERS.status` to `COMPLETED` while a Laboratory Scientist simultaneously attempts to cancel or amend the same order. By acquiring an explicit row lock (SELECT ... FOR UPDATE), Session A blocks Session B from modifying the record until Session A completes its transaction. This prevents lost updates, race conditions, and inconsistent order states across concurrent staff sessions.
 
 
 ## 7. Summary of Experiments
@@ -181,6 +180,6 @@ In LabTrack, row locking can help coordinate concurrent changes to laboratory or
 
 ## 8. Conclusion
 
-The experiments demonstrate important transaction and concurrency features provided by MySQL and InnoDB. `COMMIT` saves changes, `ROLLBACK` cancels uncommitted changes, `REPEATABLE READ` provides a consistent snapshot for reads, and row locks coordinate conflicting updates.
+The experiments demonstrate important transaction and concurrency features provided by MySQL and InnoDB. `COMMIT` saves changes, `ROLLBACK` cancels uncommitted changes, `REPEATABLE READ` provides a consistent snapshot for reads, and `row locks` coordinate conflicting updates.
 
 These features help protect data consistency when multiple users interact with the LabTrack database.

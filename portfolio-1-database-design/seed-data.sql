@@ -11,7 +11,7 @@ USE labtrack_db;
 INSERT INTO staff
     (staff_number, full_name, staff_role, is_active)
 VALUES
-    ('STF001', 'Amaka Okoro', 'REGISTRATION_OFFICER', TRUE),
+    ('STF001', 'Amaka Okoro', 'FRONT_DESK_PERSONNEL', TRUE),
     ('STF002', 'David Eze', 'LAB_SCIENTIST', TRUE),
     ('STF003', 'Ifeoma Bello', 'LAB_SCIENTIST', TRUE),
     ('STF004', 'Chidi Nwosu', 'PATHOLOGIST', TRUE),

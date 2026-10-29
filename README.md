@@ -162,44 +162,49 @@ The design aims for Third Normal Form (3NF), subject to verification of candidat
 
 ## 8. MongoDB Data Model
 
-The MongoDB component uses a collection such as `specimen_processing_history`.
+The MongoDB component uses a collection such as `specimen_history`.
 
-A document may contain a specimen identifier, its related laboratory order number, and an array of processing events.
+A document contains a specimen identifier, its related laboratory order number, and an array of processing events.
 
 Example:
 
 ```json
 {
-  "specimenNumber": "SP-1001",
-  "orderNumber": "ORD-1001",
-  "processingHistory": [
-    {
-      "event": "COLLECTED",
-      "timestamp": "2026-10-20T08:15:00Z"
+    "specimen_id": "SPCG000451",
+    "order_id": 451,
+    "specimen_type": "SERUM",
+    "status": "IN_ANALYSIS",
+    "received_at": {
+      "$date":"2026-06-01T08:15:00Z"
     },
-    {
-      "event": "RECEIVED",
-      "timestamp": "2026-10-20T09:05:00Z"
-    },
-    {
-      "event": "PROCESSED",
-      "timestamp": "2026-10-20T10:30:00Z",
-      "details": {
-        "method": "DNA extraction",
-        "batchNumber": "BATCH-001"
+    "history": [
+      {
+        "event": "REGISTERED",
+        "timestamp": {"$date": "2026-06-01T08:00:00Z"},
+        "performed_by": "STF001",
+        "notes": "Specimen registered"
+      },
+      {
+        "event": "RECEIVED",
+        "timestamp": {"$date":"2026-06-01T08:15:00Z"},
+        "performed_by": "STF002",
+        "notes": "Specimen received in the laboratory"
+      },
+      {
+        "event": "IN_ANALYSIS",
+        "timestamp": {"$date":"2026-06-01T08:45:00Z"},
+        "performed_by": "STF003",
+        "notes": "Testing commenced"
       }
-    }
-  ]
+    ]
 }
 ```
 
-The example uses synthetic data and illustrates the proposed document structure.
-
-### Planned MongoDB exercises
+### MongoDB exercises
 
 - Create a database and collection.
-- Insert specimen processing history documents.
-- Query documents by specimen or order identifier.
+- Insert specimen history documents.
+- Query documents by specimen and order identifiers.
 - Filter documents based on processing events.
 - Update a document to add a new processing event.
 - Demonstrate retrieval of nested event information.
@@ -216,9 +221,9 @@ The example uses synthetic data and illustrates the proposed document structure.
 | Example use in LabTrack | Orders, tests, patients, and results | Specimen processing history |
 | Main learning objective | Relational integrity and query optimisation | Document modelling and flexible event representation |
 
-The comparison will be based on implemented exercises and documented observations rather than assumptions that one database is universally better than the other.
+The comparison is based on implemented exercises and documented observations rather than assumptions that one database is universally better than the other.
 
-## 9. Practical Portfolio Structure
+## 9. Portfolio Structure
 
 ### Portfolio 1 — Database Design and Modelling
 
@@ -310,7 +315,7 @@ Files will be added as each exercise is implemented. The structure may be adjust
 ### Prerequisites
 
 - MySQL Server and a MySQL client.
-- MongoDB Community Server or an accessible MongoDB deployment.
+- MongoDB Atlas.
 - MongoDB Shell (`mongosh`).
 - Git.
 
@@ -431,23 +436,7 @@ Using two database systems introduces additional operational complexity. A produ
 
 ## 14. Version Control
 
-Git will be used to track progress through meaningful commits, such as:
-
-```text
-Initialise LabTrack project structure
-Add relational database schema
-Document business rules and normalisation
-Add synthetic seed data
-Implement laboratory reporting queries
-Add query execution plan analysis
-Add transaction and concurrency tests
-Add MongoDB specimen history model
-Implement MongoDB queries and updates
-Compare relational and document models
-Evaluate distributed database architecture
-Complete technical reflection
-```
-
+Git will be used to track progress through meaningful commits, 
 The commit history will reflect actual project development.
 
 ## 15. Academic Integrity and AI Use
@@ -465,6 +454,4 @@ Together, the two implementations support a comparative study of relational and 
 ---
 
 **Author:** [Nnenna Udefi]  
-**Course:** MIT 8103 — Advanced Database Systems  
-**Institution:** Miva Open University  
 **GitHub Repository:** [(https://github.com/Nnenna-udefi/labtrack-advanced-database-portfolio.git)]  

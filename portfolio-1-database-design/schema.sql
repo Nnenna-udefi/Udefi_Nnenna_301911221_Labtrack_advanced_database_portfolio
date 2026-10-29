@@ -11,7 +11,7 @@ CREATE TABLE staff (
     CONSTRAINT chk_staff_role
     CHECK (
         staff_role IN (
-            'REGISTRATION_OFFICER',
+            'FRONT_DESK_PERSONNEL',
             'LAB_SCIENTIST',
             'PATHOLOGIST',
             'REQUESTING_CLINICIAN'

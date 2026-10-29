@@ -45,7 +45,7 @@ MongoDB supports several specimen-management functions in the LabTrack workflow.
 
 ### 3.1 Specimen registration
 
-When a registration officer registers a specimen, the application creates a document containing the specimen identifier, order reference, specimen type, initial status and a `REGISTERED` history event.
+When a Front Desk Personnel registers a specimen, the application creates a document containing the specimen identifier, order reference, specimen type, initial status and a `REGISTERED` history event.
 
 The document structure keeps the specimen's identity and initial event together.
 
@@ -235,7 +235,7 @@ Data-quality checks for this implementation include:
 A JSON Schema validator enforces document structure and permitted
 values.
 
-8. MySQL and MongoDB: Why Both Models Are Used
+## 8. MySQL vs MongoDB
 LabTrack uses the two database models for different needs. MySQL remains
 appropriate for structured, related records and workflows that require
 relational constraints. MongoDB is used here to demonstrate a flexible
@@ -251,27 +251,10 @@ document model for specimen metadata and embedded event history.
 | **Important Consideration** | Relational constraints and transactions help maintain consistency across related records | Embedded updates can be convenient, but the application must still enforce workflow rules and avoid duplicate events |
 The database choice depends on access patterns, consistency requirements, relationships and operational needs.
 
-
-## 8. Evidence Collected
-
-Screenshots should be included for the following operations, where available:
-
-1. Specimen documents in the Atlas collection.
-2. Filtering by `IN_ANALYSIS`, `SERUM`, `REJECTED` and `RECEIVED`.
-3. The aggregation pipeline and its output.
-4. The specimen document before and after the history update.
-5. The successful update result.
-6. The created index and index listing.
-7. Query execution statistics showing index usage, if captured.
-8. Schema validation rules and a validation test, if implemented.
-
-The evidence should distinguish between operations performed in the Atlas interface and operations performed through `mongosh`. Both interfaces access the same cloud database when connected to the same Atlas cluster and database.
-
-
-## 10. Conclusion
+## 9. Conclusion
 
 The portfolio demonstrates how MongoDB's document model can support specimen tracking through embedded history, filtering, aggregation, document updates and indexing.
 
-The approach is particularly useful when a specimen and its associated processing events need to be retrieved together. In the wider LabTrack design, MongoDB can complement the relational database by supporting flexible specimen-history records, while structured orders, user roles and result-verification rules remain governed by the appropriate relational and application-level controls.
+The approach is particularly useful when a specimen and its associated processing events need to be retrieved together. In a bigger LabTrack design, MongoDB can complement the relational database by supporting flexible specimen-history records, while structured orders, user roles and result-verification rules remain governed by the appropriate relational and application-level controls.
 
 
