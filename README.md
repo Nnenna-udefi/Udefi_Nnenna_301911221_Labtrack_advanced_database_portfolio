@@ -7,7 +7,6 @@
 **Project Type:** Individual Practical Database Portfolio  
 **Primary Database:** MySQL  
 **NoSQL Database:** MongoDB  
-**Project Status:** In Progress
 
 ---
 
@@ -82,7 +81,7 @@ The duplicate-test rule is enforced by a unique constraint on `(order_id, test_i
 | MongoDB Query Language (MQL) | Document insertion, retrieval, filtering, and updates. |
 | JSON | Representation of specimen processing events. |
 | Git and GitHub | Version control and portfolio submission. |
-| Mermaid or an ER modelling tool | Relational schema visualisation. |
+| Mermaid | Relational schema visualisation. |
 | MySQL `EXPLAIN` | Query execution plan analysis. |
 
 ## 6. Database Architecture
@@ -160,11 +159,10 @@ The design aims for Third Normal Form (3NF), subject to verification of candidat
 - **2NF:** Non-key attributes depend on the whole of each relevant candidate key.
 - **3NF:** Non-key attributes do not depend transitively on candidate keys.
 
-The normalisation documentation will explain the relevant dependencies, keys, and design decisions.
 
 ## 8. MongoDB Data Model
 
-The MongoDB component will use a collection such as `specimen_processing_history`.
+The MongoDB component uses a collection such as `specimen_processing_history`.
 
 A document may contain a specimen identifier, its related laboratory order number, and an array of processing events.
 
@@ -318,8 +316,6 @@ Files will be added as each exercise is implemented. The structure may be adjust
 
 ### Step 1: Clone the repository
 
-Replace the placeholder with the actual repository URL.
-
 ```bash
 git clone <https://github.com/Nnenna-udefi/labtrack-advanced-database-portfolio.git>
 cd labtrack-advanced-database-portfolio
@@ -338,10 +334,9 @@ SELECT VERSION();
 Run the schema script from the MySQL client:
 
 ```sql
-SOURCE /path/to/schema.sql;
+SOURCE /portfolio-1-database-design/schema.sql;
 ```
 
-Replace the path with the actual location of the script.
 
 Verify the tables:
 

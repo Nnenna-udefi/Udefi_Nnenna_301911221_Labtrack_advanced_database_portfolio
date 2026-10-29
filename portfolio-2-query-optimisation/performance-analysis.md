@@ -20,7 +20,7 @@ The results are based on the execution-plan outputs recorded in `query-plans.md`
 | 2 | Pending orders | Index: 29.2 ms; table scan: 7.96 ms | The table scan was faster in this test. |
 | 3 | Patient order join | Indexed join: 0.155 ms | The indexes helped locate the patient and orders. |
 | 4 | Pending test worklist | Index: 16.30 ms; table scan: 15.80 ms | The table scan was slightly faster. |
-| 5 | Patients with pending orders | `IN`: 0.103 ms; `EXISTS` comparison: 0.117 ms | The `IN` version was faster in these recorded runs |
+| 5 | Patients with pending orders | `IN`: 103 ms; `EXISTS` comparison: 117 ms | The IN version was faster in this recorded run, but both queries used the same execution strategy. |
 | 6 | Daily order summary | Live aggregation: 7.47 ms; summary lookup: 0.0235 ms | The pre-calculated summary lookup was much faster. |
 
 **Important:** These times are from recorded executions. MySQL's timings can change between runs due to caching, system load, and other conditions. The Query 5 comparison is not a pure comparison of `IN` and `EXISTS`, because the `EXISTS` version disables an index.
@@ -124,16 +124,8 @@ The tests have several limitations:
 
 These limitations mean that the results should guide further testing rather than be treated as proof that one approach is always best.
 
-## 6. Recommendations for LabTrack
 
-1. Keep indexes that support important patient and order lookups.
-2. Investigate the pending-order worklist, since the forced table scan was faster in the recorded test.
-3. Compare subquery alternatives using equivalent conditions and access paths.
-4. Test a date-leading index for reporting queries that filter only by `ordered_at`.
-5. Use summary tables for frequent reports only when their refresh process is reliable.
-6. Record execution plans and repeat measurements before making production database changes.
-
-## 7. Conclusion
+## 6. Conclusion
 
 The LabTrack experiments show that query optimisation involves more than adding indexes. It requires understanding how MySQL retrieves the data, checking the execution plan and measuring the results.
 
