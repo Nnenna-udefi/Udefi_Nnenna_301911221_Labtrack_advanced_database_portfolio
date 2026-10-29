@@ -452,9 +452,9 @@ The commit history will reflect actual project development.
 
 ## 15. Academic Integrity and AI Use
 
-AI tools may support brainstorming, explanation, debugging, and documentation. Their use will be declared in the final submission in accordance with the course requirements.
+AI tools were used to support brainstorming, explanation, debugging, and documentation. This has been declared in the final submission in accordance with the course requirements.
 
-The student remains responsible for reviewing and understanding the implementation, validating the SQL and MongoDB operations, and ensuring that the final portfolio accurately represents the work completed. Proposed features will be distinguished from implemented and tested functionality.
+The author was responsible for reviewing and understanding the implementation, validating the SQL and MongoDB operations, and ensuring that the final portfolio accurately represents the work completed.
 
 ## 16. Conclusion
 
@@ -468,4 +468,3 @@ Together, the two implementations support a comparative study of relational and 
 **Course:** MIT 8103 — Advanced Database Systems  
 **Institution:** Miva Open University  
 **GitHub Repository:** [(https://github.com/Nnenna-udefi/labtrack-advanced-database-portfolio.git)]  
-**Last Updated:** October 2026

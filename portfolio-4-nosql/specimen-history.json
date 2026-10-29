@@ -1,0 +1,156 @@
+
+[
+  {
+    "specimen_id": "SPCG000451",
+    "order_id": 451,
+    "specimen_type": "SERUM",
+    "status": "IN_ANALYSIS",
+    "received_at": {
+      "$date":"2026-06-01T08:15:00Z"
+    },
+    "history": [
+      {
+        "event": "REGISTERED",
+        "timestamp": {"$date": "2026-06-01T08:00:00Z"},
+        "performed_by": "STF001",
+        "notes": "Specimen registered"
+      },
+      {
+        "event": "RECEIVED",
+        "timestamp": {"$date":"2026-06-01T08:15:00Z"},
+        "performed_by": "STF002",
+        "notes": "Specimen received in the laboratory"
+      },
+      {
+        "event": "IN_ANALYSIS",
+        "timestamp": {"$date":"2026-06-01T08:45:00Z"},
+        "performed_by": "STF003",
+        "notes": "Testing commenced"
+      }
+    ]
+  },
+  {
+    "specimen_id": "SPCG000457",
+    "order_id": 457,
+    "specimen_type": "PLASMA",
+    "status": "RECEIVED",
+    "received_at": {"$date":"2026-06-07T08:00:00Z"},
+    "history": [
+      {
+        "event": "REGISTERED",
+        "timestamp": {"$date":"2026-06-07T07:40:00Z"},
+        "performed_by": "STF001",
+        "notes": "Specimen registered"
+      },
+      {
+        "event": "RECEIVED",
+        "timestamp": {"$date":"2026-06-07T08:00:00Z"},
+        "performed_by": "STF002",
+        "notes": "Specimen received and awaiting processing"
+      }
+    ]
+  },
+  {
+    "specimen_id": "SPCG000464",
+    "order_id": 464,
+    "specimen_type": "CERVICAL_SWAB",
+    "status": "COMPLETED",
+    "received_at": {"$date":"2026-06-14T07:00:00Z"},
+    "history": [
+      {
+        "event": "REGISTERED",
+        "timestamp": {"$date":"2026-06-14T06:45:00Z"},
+        "performed_by": "STF001",
+        "notes": "Specimen registered"
+      },
+      {
+        "event": "RECEIVED",
+        "timestamp": {"$date":"2026-06-14T07:00:00Z"},
+        "performed_by": "STF002",
+        "notes": "Specimen received"
+      },
+      {
+        "event": "IN_ANALYSIS",
+        "timestamp": {"$date":"2026-06-14T07:20:00Z"},
+        "performed_by": "STF003",
+        "notes": "Analysis started"
+      },
+      {
+        "event": "COMPLETED",
+        "timestamp": {"$date":"2026-06-14T10:10:00Z"},
+        "performed_by": "STF003",
+        "notes": "Analysis completed"
+      }
+    ]
+  },
+  {
+    "specimen_id": "SPCG000591",
+    "order_id": 591,
+    "specimen_type": "SERUM",
+    "status": "REJECTED",
+    "received_at": {"$date":"2026-10-19T08:10:00Z"},
+    "history": [
+      {
+        "event": "REGISTERED",
+        "timestamp": {"$date":"2026-10-19T08:00:00Z"},
+        "performed_by": "STF001",
+        "notes": "Specimen registered"
+      },
+      {
+        "event": "RECEIVED",
+        "timestamp": {"$date":"2026-10-19T08:10:00Z"},
+        "performed_by": "STF002",
+        "notes": "Specimen received for inspection"
+      },
+      {
+        "event": "REJECTED",
+        "timestamp": {"$date":"2026-10-19T08:45:00Z"},
+        "performed_by": "STF003",
+        "notes": "Rejected due to a sample quality issue, wrong sample container was used to collect the sample."
+      }
+    ]
+  },
+  {
+    "specimen_id": "SPCG000665",
+    "order_id": 665,
+    "specimen_type": "URINE",
+    "status": "IN_ANALYSIS",
+    "received_at": {"$date":"2026-03-07T10:00:00Z"},
+    "history": [
+      {
+        "event": "REGISTERED",
+        "timestamp": {"$date":"2026-03-07T09:40:00Z"},
+        "performed_by": "STF001",
+        "notes": "Specimen registered"
+      },
+      {
+        "event": "RECEIVED",
+        "timestamp": {"$date":"2026-03-07T10:00:00Z"},
+        "performed_by": "STF002",
+        "notes": "Specimen received"
+      },
+      {
+        "event": "IN_ANALYSIS",
+        "timestamp": {"$date":"2026-03-07T10:30:00Z"},
+        "performed_by": "STF003",
+        "notes": "Testing commenced"
+      }
+    ]
+  },
+  {
+    "specimen_id": "SPCG000870",
+    "order_id": 870,
+    "specimen_type": "URETHRAL_SWAB",
+    "status": "REGISTERED",
+    "received_at": null,
+    "history": [
+      {
+        "event": "REGISTERED",
+        "timestamp": {"$date":"2026-09-27T10:45:00Z"},
+        "performed_by": "STF001",
+        "notes": "Specimen registered; awaiting laboratory receipt"
+      }
+    ]
+  }
+]
+
