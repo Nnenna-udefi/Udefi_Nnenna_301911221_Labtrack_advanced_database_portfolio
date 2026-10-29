@@ -88,7 +88,12 @@ WHERE result_id = 1;
 
 COMMIT;
 
--- Returns to SESSION A and end its transaction.
+-- Returns to SESSION A, runs the SELECT query again and end its transaction which still shows the earlier interpretation.
+SELECT result_id, interpretation
+FROM test_results
+WHERE result_id = 1;
+
+-- and end the transaction.
 COMMIT;
 
 -- A new read should now see the committed update (POSITIVE interpretation).
