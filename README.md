@@ -264,12 +264,6 @@ The comparison is based on implemented exercises and documented observations rat
 - Consider backup, disaster recovery, and cloud or hybrid deployment.
 - Explain how the relational and NoSQL components could be deployed and managed if the architecture were extended.
 
-### Final Documentation and Technical Reflection
-
-- Consolidate practical evidence.
-- Summarise the implementation and test results.
-- Reflect on design choices, limitations, and lessons learned.
-- Include references and an accurate AI-use declaration.
 
 ## 10. Repository Structure
 
@@ -285,6 +279,7 @@ labtrack-advanced-database-portfolio/
 │   ├── seed-data.sql
 │   └── normalisation.md
 ├── portfolio-2-query-optimisation/
+│   ├── expand-seed-data.sql
 │   ├── queries.sql
 │   ├── query-plans.md
 │   └── performance-analysis.md
@@ -294,18 +289,15 @@ labtrack-advanced-database-portfolio/
 │   └── evidence/
 ├── portfolio-4-nosql/
 │   ├── specimen-history.json
-│   ├── mongodb-setup.md
-│   ├── queries.js
+│   ├── schema-validation.js
+│   ├── nosql-queries.js
 │   ├── implementation.md
 │   └── evidence/
 ├── portfolio-5-distributed-cloud/
 │   ├── architecture.md
 │   ├── replication.md
 │   └── evidence/
-└── final-documentation/
-    ├── portfolio-summary.md
-    ├── technical-reflection.md
-    └── ai-use-declaration.md
+└── 
 ```
 
 Files will be added as each exercise is implemented. The structure may be adjusted to reflect the final work.
@@ -374,17 +366,23 @@ The following example creates a collection and inserts synthetic data:
 
 ```javascript
 db.specimen_processing_history.insertOne({
-  specimenNumber: "SP-1001",
-  orderNumber: "ORD-1001",
-  processingHistory: [
-    {
-      event: "COLLECTED",
-      timestamp: new Date("2026-10-20T08:15:00Z")
-    },
-    {
-      event: "RECEIVED",
-      timestamp: new Date("2026-10-20T09:05:00Z")
-    }
+  specimen_id_: "SPCG001001",
+  order_id_: "1001",
+  status: 'RECEIVED',
+
+  history: [
+     {
+        "event": "REGISTERED",
+        "timestamp": {"$date": "2026-06-01T08:00:00Z"},
+        "performed_by": "STF001",
+        "notes": "Specimen registered"
+      },
+      {
+        "event": "RECEIVED",
+        "timestamp": {"$date":"2026-06-01T08:15:00Z"},
+        "performed_by": "STF002",
+        "notes": "Specimen received in the laboratory"
+      },
   ]
 })
 ```
@@ -393,7 +391,7 @@ db.specimen_processing_history.insertOne({
 
 ```javascript
 db.specimen_processing_history.findOne({
-  specimenNumber: "SP-1001"
+  specimen_id: "SPCG000451"
 })
 ```
 
@@ -424,7 +422,7 @@ The portfolio will include reproducible tests and evidence for both database sys
 - Validation of the document structure where applicable.
 - Comparison of document-based and relational retrieval.
 
-Screenshots, outputs, query scripts, and notes will be saved in the corresponding portfolio folders. Test results will be reported only after the tests have been performed.
+Screenshots, outputs, query scripts, and notes will be saved in the corresponding portfolio folders.
 
 ## 13. Data Protection and Limitations
 
@@ -437,7 +435,7 @@ Using two database systems introduces additional operational complexity. A produ
 ## 14. Version Control
 
 Git will be used to track progress through meaningful commits, 
-The commit history will reflect actual project development.
+The commit history reflects project development.
 
 ## 15. Academic Integrity and AI Use
 

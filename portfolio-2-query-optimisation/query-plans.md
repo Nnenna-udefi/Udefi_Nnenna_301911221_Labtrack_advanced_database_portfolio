@@ -1,9 +1,5 @@
 # Portfolio 2: Query Execution Plans
 
-**Course:** MIT 8103 – Advanced Database Systems  
-**Project:** LabTrack Laboratory Information Management System (LIMS)  
-**Database engine:** MySQL 8.0
-
 ## 1. Purpose
 
 This document records how MySQL executes selected LabTrack queries.
@@ -271,8 +267,6 @@ The summary lookup was substantially faster in the recorded test because it read
 
 The summary table must be refreshed when the underlying data changes. Its totals should also be checked against the live aggregation to confirm that the two methods produce the same results.
 
-
-
 ## 8. Final Observations
 
 The tests show that:
@@ -283,5 +277,3 @@ The tests show that:
 4. The status index did not improve the recorded timing for Query 4.
 5. MySQL transformed the Query 5 subqueries into plans involving materialisation and deduplication.
 6. The pre-calculated summary made Query 6 faster in the recorded test.
-
-These findings should be interpreted in the context of the dataset and test environment. They do not establish that the same access method will always be fastest at larger scales.

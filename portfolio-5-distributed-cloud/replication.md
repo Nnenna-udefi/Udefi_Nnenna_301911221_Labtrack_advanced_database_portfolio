@@ -337,7 +337,7 @@ Both replication threads were running, and the test record was available on the 
 
 **Implementation result:** Successful primary–replica replication was configured and verified.
 
-## 10. Monitoring, Recovery and Failover Considerations
+## 9. Monitoring, Recovery and Failover Considerations
 
 Although replication was successfully demonstrated, a distributed database environment requires continuous monitoring and an appropriate recovery strategy.
 
@@ -386,7 +386,7 @@ Accidental deletion, incorrect updates or data corruption can be replicated from
 
 Regular independent backups are therefore necessary to support database recovery.
 
-## 11. Limitations of the Implementation
+## 10. Limitations of the Implementation
 
 The implementation successfully demonstrated MySQL primary–replica replication, but it has several limitations:
 
@@ -399,7 +399,7 @@ The implementation successfully demonstrated MySQL primary–replica replication
 
 These limitations distinguish the local demonstration from a production-ready distributed database deployment.
 
-## 12. Conclusion
+## 11. Conclusion
 
 The LabTrack primary–replica implementation demonstrates how database distribution can improve the availability of database copies and provide opportunities for read workload distribution.
 
@@ -410,22 +410,3 @@ The implementation also involved practical troubleshooting of authentication and
 Successful replication was confirmed by observing both replication threads running and verifying that a newly created database, table and record on the primary appeared automatically on the replica.
 
 Although the implementation was performed locally, it provides a practical foundation for understanding distributed database architecture, replication monitoring, recovery planning and the considerations involved in deploying a more scalable database environment.
-
-## 13. Evidence and Screenshots
-
-Screenshots supporting the implementation are stored in the `evidence` directory.
-
-Suggested evidence files:
-
-| Screenshot | Description |
-|---|---|
-| `mysql-services-running.png` | Both MySQL Windows services running. |
-| `replica-configuration-server-1.png & replica-configuration-server-2.png` | Replica port, server ID, data directory and read-only settings. |
-| `primary-database-backup.png` | Successful database backup and generated SQL file. |
-| `replica-database-import.png` | LabTrack tables present on the replica after import. |
-| `replication-status.png` | Both replication threads showing `Yes`. |
-| `replication-test-primary.png` | Test record inserted on the primary. |
-| `replication-test-replica.png` | Matching test record retrieved from the replica. |
-
-
-These screenshots provide practical evidence of the configuration, implementation and verification processes.

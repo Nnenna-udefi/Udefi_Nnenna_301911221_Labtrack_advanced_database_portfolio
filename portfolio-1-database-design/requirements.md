@@ -12,13 +12,13 @@ All data used for development and testing will be synthetic.
 
 The database should:
 
-1. Maintain unique records for patients and ordering clinicians.
+1. Maintain unique records for patients.
 2. Record laboratory orders requested for patients.
 3. Maintain a catalogue of available laboratory tests.
 4. Support orders containing multiple tests.
 5. Track specimens received for laboratory orders.
 6. Associate each ordered test with its relevant specimen.
-7. Store test results and their verification details.
+7. Store test results.
 8. Prevent invalid references and duplicate patient identifiers.
 9. Support queries for patient history, pending tests, specimen tracking, and reported results.
 
@@ -26,7 +26,6 @@ The database should:
 
 ### In scope
 - Patient registration
-- Clinician registration
 - Laboratory order management
 - Laboratory test catalogue management
 - Specimen registration and tracking
@@ -62,8 +61,6 @@ The database should:
 ## 5. Assumptions
 
 - LabTrack represents one simulated laboratory.
-- Each order is placed by one clinician.
-- The first version supports one recorded result per ordered test.
 - Each ordered test is linked to one specimen.
 - Sample patients and clinicians are fictional.
 

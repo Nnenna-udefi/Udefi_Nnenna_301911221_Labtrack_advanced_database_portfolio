@@ -1,7 +1,5 @@
 # Portfolio 2: Query Performance Analysis
-
-**Course:** MIT 8103 – Advanced Database Systems  
-**Project:** LabTrack Laboratory Information Management System (LIMS)  
+ 
 **Database:** MySQL 8.0 / InnoDB
 
 ## 1. Introduction
