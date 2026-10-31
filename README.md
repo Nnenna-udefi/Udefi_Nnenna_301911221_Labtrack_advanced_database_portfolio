@@ -297,7 +297,7 @@ labtrack-advanced-database-portfolio/
 │   ├── architecture.md
 │   ├── replication.md
 │   └── evidence/
-└── 
+└── final-summary.md
 ```
 
 Files will be added as each exercise is implemented. The structure may be adjusted to reflect the final work.
