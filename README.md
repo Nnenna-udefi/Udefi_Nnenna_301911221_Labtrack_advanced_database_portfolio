@@ -314,7 +314,7 @@ Files will be added as each exercise is implemented. The structure may be adjust
 ### Step 1: Clone the repository
 
 ```bash
-git clone <https://github.com/Nnenna-udefi/labtrack-advanced-database-portfolio.git>
+git clone <https://github.com/Nnenna-udefi/Udefi_Nnenna_301911221_Labtrack_advanced_database_portfolio.git>
 cd labtrack-advanced-database-portfolio
 ```
 
