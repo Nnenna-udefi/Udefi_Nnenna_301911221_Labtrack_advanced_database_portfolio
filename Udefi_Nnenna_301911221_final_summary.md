@@ -6,7 +6,7 @@
 **Project:** LabTrack – Simulated Clinical Laboratory Information Management System (LIMS)  
 **Selected Organisation:** LabTrack – Simulated Clinical Laboratory  
 **Database Technologies:** MySQL 8.0, MongoDB Atlas  
-**GitHub Repository:** https://github.com/Nnenna-udefi/labtrack-advanced-database-portfolio.git  
+**GitHub Repository:** https://github.com/Nnenna-udefi/Udefi_Nnenna_301911221_Labtrack_advanced_database_portfolio.git
 **Nature of the Database:** Patients, staff, lab orders, order tests, lab tests, specimens, test results, audit logs  
 **Possible Database Operations:** Register patients, log test requests, track specimen collection/status, record and validate test results, generate clinical diagnostic transcripts  
 
