@@ -452,4 +452,4 @@ Together, the two implementations support a comparative study of relational and 
 ---
 
 **Author:** [Nnenna Udefi]  
-**GitHub Repository:** [(https://github.com/Nnenna-udefi/labtrack-advanced-database-portfolio.git)]  
+**GitHub Repository:** [(https://github.com/Nnenna-udefi/Udefi_Nnenna_301911221_Labtrack_advanced_database_portfolio.git)]  
